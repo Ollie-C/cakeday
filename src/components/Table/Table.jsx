@@ -19,14 +19,16 @@ const Table = ({ employees }) => {
         </thead>
         {employees.length && (
           <tbody className="table__body" data-testid="displayTbody">
-            {employees.map((employee) => (
-              <tr className="table__row" key={employee.id}>
-                <td>{employee.name}</td>
-                <td>{new Date(employee.dob).toDateString().slice(4, 15)}</td>
-                <td>{employee.cakeDay.slice(4, 15)}</td>
-                <td>{employee.cakeSize}</td>
-              </tr>
-            ))}
+            {employees
+              .map((employee) => (
+                <tr className="table__row" key={employee.id}>
+                  <td>{employee.name}</td>
+                  <td>{new Date(employee.dob).toDateString().slice(4, 15)}</td>
+                  <td>{employee.cakeDay.slice(4, 15)}</td>
+                  <td>{employee.cakeSize}</td>
+                </tr>
+              ))
+              .slice(0, 5)}
           </tbody>
         )}
       </table>

@@ -42,3 +42,7 @@ export const cakeUpgrade = (cakeDay, employees) => {
     employee.cakeDay === cakeDay ? { ...employee, cakeSize: "Large" } : employee
   );
 };
+
+export const sortEmployees = (employees) => {
+  return employees.sort((a, b) => new Date(a.cakeDay) - new Date(b.cakeDay));
+};

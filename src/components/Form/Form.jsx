@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import "./Form.scss";
 import "react-datepicker/dist/react-datepicker.css";
 //Utils
-import { calculateCakeDay, cakeUpgrade, isShared } from "../../utils/helpers";
+import {
+  calculateCakeDay,
+  cakeUpgrade,
+  isShared,
+  sortEmployees,
+} from "../../utils/helpers";
 //Packages
 import { v4 } from "uuid";
 import DatePicker from "react-datepicker";
@@ -29,8 +34,11 @@ const Form = ({ employees, setEmployees }) => {
     //Update cakeSize for current employee
     const updatedEmployees = cakeUpgrade(cakeDay, employees);
 
+    //Sort in ascending order
+    const sorted = sortEmployees([employee, ...updatedEmployees]);
+
     //Update state
-    setEmployees([employee, ...updatedEmployees]);
+    setEmployees(sorted);
 
     // Reset;
     setNewEmployee({ name: "", dob: new Date() });
@@ -38,7 +46,7 @@ const Form = ({ employees, setEmployees }) => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <h2>EMPLOYEE DETAILS FORM</h2>
+      <h4>EMPLOYEE DETAILS FORM</h4>
       <div className="form__fields">
         <input
           type="text"
