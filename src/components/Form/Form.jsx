@@ -1,16 +1,15 @@
 import React, { useState } from "react";
+//Styles
 import "./Form.scss";
+import "react-datepicker/dist/react-datepicker.css";
+//Utils
 import { calculateCakeDay, cakeUpgrade, isShared } from "../../utils/helpers";
+//Packages
 import { v4 } from "uuid";
+import DatePicker from "react-datepicker";
 
 const Form = ({ employees, setEmployees }) => {
   const [newEmployee, setNewEmployee] = useState({ name: "", dob: "" });
-
-  //Update newEmployee.name and .dob on user input
-  const handleChange = ({ target }) => {
-    let { name, value } = target;
-    setNewEmployee({ ...newEmployee, [name]: value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +32,7 @@ const Form = ({ employees, setEmployees }) => {
     //Update state
     setEmployees([employee, ...updatedEmployees]);
 
-    //Reset
+    // Reset;
     setNewEmployee({ name: "", dob: "" });
   };
 
@@ -46,13 +45,13 @@ const Form = ({ employees, setEmployees }) => {
           name="name"
           value={newEmployee.name}
           placeholder="Employee name"
-          onChange={(e) => handleChange(e)}
+          onChange={(e) =>
+            setNewEmployee({ ...newEmployee, name: e.target.value })
+          }
         />
-        <input
-          type="date"
-          name="dob"
-          value={newEmployee.dob}
-          onChange={(e) => handleChange(e)}
+        <DatePicker
+          selected={new Date()}
+          onChange={(e) => setNewEmployee({ ...newEmployee, dob: e })}
         />
         <button
           className="form__cta"

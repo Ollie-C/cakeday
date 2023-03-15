@@ -1,11 +1,10 @@
 //Function to calculate cake day
 //Take birthday, find date for this year, calculate cakeday as following working day after birthday day off
 export const calculateCakeDay = (dob) => {
-  //Format: 1990-03-15
-  let [_year, month, day] = dob.split("-");
+  //Format: Wed Mar 15 2023 + time
 
   //Get this year's birthday
-  const birthday = new Date(2023, month - 1, day);
+  const birthday = new Date(2023, dob.getMonth(), dob.getDate());
   //Get day of the week
   const birthdayDay = birthday.getDay();
 

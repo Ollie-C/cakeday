@@ -8,8 +8,10 @@ const App = () => {
   useEffect(() => {
     //On page load, sync state with localstorage
     const savedEmployees = JSON.parse(localStorage.getItem("employees"));
-    if (savedEmployees & (savedEmployees.length > 0)) {
-      setEmployees(savedEmployees);
+    if (savedEmployees) {
+      if (savedEmployees.length > 0) {
+        setEmployees(savedEmployees);
+      }
     }
   }, []);
 
