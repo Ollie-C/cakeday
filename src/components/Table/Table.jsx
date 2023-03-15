@@ -3,9 +3,12 @@ import React from "react";
 import "./Table.scss";
 
 const Table = ({ employees }) => {
+  if (!employees) {
+    return <p>Loading ...</p>;
+  }
   return (
     <section className="table-container">
-      <table className="table">
+      <table className="table" data-testid="testTable">
         <thead className="table__head">
           <tr>
             <th>NAME</th>
@@ -14,9 +17,9 @@ const Table = ({ employees }) => {
             <th>CAKE SIZE</th>
           </tr>
         </thead>
-        <tbody className="table__body">
-          {employees &&
-            employees.map((employee) => (
+        {employees.length && (
+          <tbody className="table__body" data-testid="displayTbody">
+            {employees.map((employee) => (
               <tr className="table__row" key={employee.id}>
                 <td>{employee.name}</td>
                 <td>{new Date(employee.dob).toDateString().slice(4, 15)}</td>
@@ -24,9 +27,10 @@ const Table = ({ employees }) => {
                 <td>{employee.cakeSize}</td>
               </tr>
             ))}
-        </tbody>
+          </tbody>
+        )}
       </table>
-      {employees.length < 1 && <p className="table__error">Add an employee!</p>}
+      {!employees.length && <p className="table__error">Add an employee!</p>}
     </section>
   );
 };
