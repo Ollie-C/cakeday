@@ -3,11 +3,13 @@
 
 .table-container {
   width: 100%;
-  @include flex(column, center, center);
+  @include flex(column, flex-start, center);
   padding: 1rem;
+  height: 20rem;
 }
 
 .table {
+  position: relative;
   text-align: center;
   border-collapse: collapse;
   border-radius: 10px;
@@ -34,9 +36,34 @@
     td {
       font-size: 1.2rem;
     }
+
+    &--active {
+      font-weight: 900;
+      &:hover {
+        color: $app-pink;
+        cursor: pointer;
+      }
+    }
   }
 
   &__error {
     padding: 4rem;
+  }
+
+  &__reset {
+    border: none;
+    padding: 0.3rem;
+    border-radius: 8px;
+    font-size: 0.6rem;
+    background-color: $app-white;
+    color: $app-blue;
+    position: absolute;
+    top: -2rem;
+    right: 0;
+
+    &:hover {
+      background-color: $app-pink;
+      color: $app-white;
+    }
   }
 }

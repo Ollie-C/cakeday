@@ -1,6 +1,23 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .piechart {
-  background-color: $app-blue;
-  color: $app-blue;
+  min-height: 5rem;
+  @include flex(row, center, center);
+  position: relative;
+
+  &__noCake,
+  &__smallCake,
+  &__largeCake {
+    position: absolute;
+    font-size: 2rem;
+  }
+
+  &__smallCake {
+    right: 20rem;
+  }
+
+  &__largeCake {
+    left: 20rem;
+  }
 }
