@@ -4,7 +4,7 @@
 .table-container {
   width: 100%;
   @include flex(column, flex-start, center);
-  padding: 1rem;
+  padding: 0.5rem 8rem;
   height: 20rem;
 }
 
@@ -13,7 +13,7 @@
   text-align: center;
   border-collapse: collapse;
   border-radius: 10px;
-  width: 80%;
+  width: 100%;
   background-color: $app-white;
   color: $app-pink;
   &__head {
@@ -58,7 +58,7 @@
     background-color: $app-white;
     color: $app-blue;
     position: absolute;
-    top: -2rem;
+    bottom: -2rem;
     right: 0;
 
     &:hover {

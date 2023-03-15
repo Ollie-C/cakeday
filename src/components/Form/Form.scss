@@ -1,14 +1,24 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.form {
-  padding: 1rem;
-  @include flex(column, flex-start, center);
+.logo {
+  width: 12rem;
 
-  h4 {
-    padding: 5px;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.form {
+  width: 100%;
+  padding: 1rem 8rem;
+  @include flex(row, space-between, center);
+
+  &__container {
+    h4 {
+      padding: 5px;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+    }
   }
 
   &__fields {
@@ -25,7 +35,10 @@
   &__cta {
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    border: none;
+    margin: 2px;
+    border: 1px solid $app-white;
+    background-color: transparent;
+
     &:hover {
       background-color: $app-pink;
     }

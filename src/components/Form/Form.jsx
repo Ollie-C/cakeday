@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Logo from "../../assets/images/cakedayLogo.png";
 //Styles
 import "./Form.scss";
 import "react-datepicker/dist/react-datepicker.css";
@@ -46,28 +47,31 @@ const Form = ({ employees, setEmployees }) => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <h4>EMPLOYEE DETAILS FORM</h4>
-      <div className="form__fields">
-        <input
-          type="text"
-          name="name"
-          value={newEmployee.name}
-          placeholder="Employee name"
-          onChange={(e) =>
-            setNewEmployee({ ...newEmployee, name: e.target.value })
-          }
-        />
-        <DatePicker
-          selected={newEmployee.dob}
-          onSelect={(e) => setNewEmployee({ ...newEmployee, dob: e })}
-        />
-        <button
-          className="form__cta"
-          type="submit"
-          disabled={!newEmployee.name}
-        >
-          SUBMIT
-        </button>
+      <img src={Logo} alt="cakeday logo" className="logo" />
+      <div className="form__container">
+        <h4>EMPLOYEE DETAILS FORM</h4>
+        <div className="form__fields">
+          <input
+            type="text"
+            name="name"
+            value={newEmployee.name}
+            placeholder="Employee name"
+            onChange={(e) =>
+              setNewEmployee({ ...newEmployee, name: e.target.value })
+            }
+          />
+          <DatePicker
+            selected={newEmployee.dob}
+            onSelect={(e) => setNewEmployee({ ...newEmployee, dob: e })}
+          />
+          <button
+            className="form__cta"
+            type="submit"
+            disabled={!newEmployee.name}
+          >
+            SUBMIT
+          </button>
+        </div>
       </div>
     </form>
   );
