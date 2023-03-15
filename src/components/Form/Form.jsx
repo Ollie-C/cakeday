@@ -9,7 +9,7 @@ import { v4 } from "uuid";
 import DatePicker from "react-datepicker";
 
 const Form = ({ employees, setEmployees }) => {
-  const [newEmployee, setNewEmployee] = useState({ name: "", dob: "" });
+  const [newEmployee, setNewEmployee] = useState({ name: "", dob: new Date() });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,12 +33,12 @@ const Form = ({ employees, setEmployees }) => {
     setEmployees([employee, ...updatedEmployees]);
 
     // Reset;
-    setNewEmployee({ name: "", dob: "" });
+    setNewEmployee({ name: "", dob: new Date() });
   };
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <h2>Employee Details Form</h2>
+      <h2>EMPLOYEE DETAILS FORM</h2>
       <div className="form__fields">
         <input
           type="text"
@@ -50,13 +50,13 @@ const Form = ({ employees, setEmployees }) => {
           }
         />
         <DatePicker
-          selected={new Date()}
-          onChange={(e) => setNewEmployee({ ...newEmployee, dob: e })}
+          selected={newEmployee.dob}
+          onSelect={(e) => setNewEmployee({ ...newEmployee, dob: e })}
         />
         <button
           className="form__cta"
           type="submit"
-          disabled={!newEmployee.name || !newEmployee.dob}
+          disabled={!newEmployee.name}
         >
           SUBMIT
         </button>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Form from "./components/Form/Form";
+import Table from "./components/Table/Table";
 import "./styles/Styles.scss";
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
       </header>
       <main>
         <Form employees={employees} setEmployees={setEmployees} />
+        <Table employees={employees} />
       </main>
     </div>
   );

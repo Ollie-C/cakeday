@@ -1,0 +1,42 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.table-container {
+  width: 100%;
+  @include flex(column, center, center);
+  padding: 3rem;
+}
+
+.table {
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+
+  &__head {
+    position: sticky;
+    background-color: $app-pink;
+
+    tr {
+      height: 3rem;
+    }
+  }
+
+  &__body {
+    background-color: $app-white;
+    color: $app-blue;
+    width: 100%;
+  }
+
+  &__row {
+    height: 2rem;
+    width: 100%;
+
+    td {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__error {
+    padding: 4rem;
+  }
+}

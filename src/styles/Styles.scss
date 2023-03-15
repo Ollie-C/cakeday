@@ -1,3 +1,11 @@
 @use "./partials/resets";
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
+
+header {
+  h1 {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+}
