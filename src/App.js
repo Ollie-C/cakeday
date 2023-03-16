@@ -31,6 +31,7 @@ const App = () => {
       ).length;
       setCakeSizes([bigCakes, employees.length - bigCakes]);
     }
+    console.log(employees);
   }, [employees]);
 
   return (

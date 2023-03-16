@@ -12,6 +12,8 @@ import {
   isShared,
   sortEmployees,
 } from "../../utils/helpers";
+//Seed data
+import { mockData } from "../../data/seed";
 
 const Form = ({ employees, setEmployees }) => {
   const [newEmployee, setNewEmployee] = useState({ name: "", dob: new Date() });
@@ -19,10 +21,17 @@ const Form = ({ employees, setEmployees }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //Reset ALL data - temporary hack
+    //Reset ALL data
     if (newEmployee.name === "reset") {
       setNewEmployee({ name: "", dob: new Date() });
       setEmployees([]);
+      return;
+    }
+
+    //Seed with mock data
+    if (newEmployee.name === "seed") {
+      setNewEmployee({ name: "", dob: new Date() });
+      setEmployees(sortEmployees(mockData));
       return;
     }
 

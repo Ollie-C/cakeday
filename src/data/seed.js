@@ -1,0 +1,51 @@
+export const mockData = [
+  {
+    id: 1,
+    name: "Ollie",
+    dob: "1990-11-12",
+    cakeDay: "Tue Nov 14 2023",
+    cakeSize: "Small",
+  },
+  {
+    id: 2,
+    name: "Mr Kipling",
+    dob: "1955-07-07",
+    cakeDay: "Mon Jul 10 2023",
+    cakeSize: "Small",
+  },
+  {
+    id: 3,
+    name: "Judie D",
+    dob: "1934-09-12",
+    cakeDay: "Tue Dec 12 2023",
+    cakeSize: "Small",
+  },
+  {
+    id: 4,
+    name: "Sam",
+    dob: "1996-06-01",
+    cakeDay: "Fri Jun 02 2023",
+    cakeSize: "Small",
+  },
+  {
+    id: 5,
+    name: "Frodo",
+    dob: "1987-10-25",
+    cakeDay: "Thu Oct 26 2023",
+    cakeSize: "Small",
+  },
+  {
+    id: 6,
+    name: "Angela M",
+    dob: "1954-07-17",
+    cakeDay: "Tue Jul 18 2023",
+    cakeSize: "Large",
+  },
+  {
+    id: 7,
+    name: "David H",
+    dob: "1952-07-17",
+    cakeDay: "Tue Jul 18 2023",
+    cakeSize: "Large",
+  },
+];
