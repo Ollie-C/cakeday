@@ -2,10 +2,11 @@
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
 
-header {
-  h1 {
-    width: 100%;
-    text-align: center;
-    padding: 1rem;
+main {
+  width: 100%;
+  padding: 0.5rem 1rem;
+
+  @include desktop {
+    padding: 0.5rem 8rem;
   }
 }

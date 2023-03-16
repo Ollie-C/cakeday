@@ -4,7 +4,6 @@
 .table-container {
   width: 100%;
   @include flex(column, flex-start, flex-end);
-  padding: 0.5rem 8rem;
   height: 20rem;
 }
 

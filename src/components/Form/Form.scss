@@ -3,17 +3,25 @@
 
 .logo {
   width: 12rem;
-
   z-index: 1;
   border-radius: 8px;
 }
 
 .form {
   width: 100%;
-  padding: 1rem 8rem;
-  @include flex(row, space-between, center);
+  margin-bottom: 1rem;
+  @include flex(column, center, center);
+
+  @include desktop {
+    @include flex(row, space-between, center);
+  }
 
   &__container {
+    padding: 1rem 0;
+
+    @include desktop {
+      padding: 0;
+    }
     h4 {
       padding: 5px;
       font-size: 0.6rem;
@@ -22,25 +30,46 @@
   }
 
   &__fields {
-    @include flex(row, center, center);
+    @include flex(column, center, center);
+
+    @include desktop {
+      flex-direction: row;
+    }
 
     input {
-      padding: 0.5rem 1rem;
+      padding: 1rem;
       margin: 2px;
       border-radius: 5px;
       border: none;
+
+      @include desktop {
+        padding: 0.5rem 1rem;
+      }
     }
   }
 
   &__cta {
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    margin: 2px;
     border: 1px solid $app-white;
-    background-color: transparent;
+    background-color: $app-white;
+    color: $app-blue;
+    width: 100%;
+    margin-top: 4px;
+
+    @include desktop {
+      width: auto;
+      margin: 2px;
+    }
 
     &:hover {
       background-color: $app-pink;
+      color: $app-white;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: $app-white;
     }
   }
 }

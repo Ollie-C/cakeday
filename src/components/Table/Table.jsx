@@ -52,7 +52,12 @@ const Table = ({ employees }) => {
             <th>CAKE SIZE</th>
           </tr>
         </thead>
-        {displayedEmployees.length && (
+        {!filtered.length && (
+          <tr>
+            <td className="table__error">Add an employee!</td>
+          </tr>
+        )}
+        {displayedEmployees.length > 0 && (
           <tbody className="table__body" data-testid="displayTbody">
             {displayedEmployees
               .map((employee) => (
@@ -76,7 +81,7 @@ const Table = ({ employees }) => {
           </tbody>
         )}
       </table>
-      {!filtered.length && <p className="table__error">Add an employee!</p>}
+
       {employees.length > 5 && (
         <Navigation page={page} totalPages={totalPages} setPage={setPage} />
       )}
