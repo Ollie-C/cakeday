@@ -5,6 +5,11 @@
   width: 100%;
   @include flex(column, flex-start, flex-end);
   height: 20rem;
+  margin: 2rem 0;
+
+  @include desktop {
+    margin: 1rem 0;
+  }
 }
 
 .table {
@@ -31,25 +36,24 @@
   &__row {
     height: 3rem;
     width: 100%;
+
     &:hover {
       background-color: #fff2f8;
     }
 
     td {
-      font-size: 1.2rem;
-    }
-
-    &--active {
-      font-weight: 900;
-      &:hover {
-        color: $app-pink;
-        cursor: pointer;
+      font-size: 1rem;
+      @include desktop {
+        font-size: 1.2rem;
       }
     }
   }
 
-  &__error {
-    padding: 4rem;
+  &__nodata {
+    padding: 2rem;
+    text-align: left;
+    color: $app-blue;
+    font-weight: 600;
   }
 
   &__reset {
@@ -68,16 +72,40 @@
       color: $app-white;
     }
   }
-}
 
-.nav {
-  @include flex(row, center, center);
+  &__hide {
+    min-width: 25%;
+    width: 25%;
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
 
-  * {
-    margin: 0.1rem;
+  &__name {
+    text-align: left;
+    min-width: 30%;
+    width: 30%;
+    font-weight: 600;
+    padding: 0 8px;
+    @include desktop {
+      padding-left: 3rem;
+    }
+  }
 
-    padding: 0 0.5rem;
-    border-radius: 4px;
-    font-size: 1.1rem;
+  &__cakeday {
+    min-width: 25%;
+    width: 25%;
+    &--active {
+      font-weight: 900;
+      &:hover {
+        color: $app-pink;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__size {
+    min-width: 20%;
+    width: 20%;
   }
 }

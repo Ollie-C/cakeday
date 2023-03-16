@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+//Components
 import Navigation from "../Pagination/Pagination";
 //Styles
 import "./Table.scss";
@@ -7,6 +8,7 @@ import { displayFiveEmployees } from "../../utils/helpers";
 
 const Table = ({ employees }) => {
   const [filtered, setFiltered] = useState([]);
+  //Filter mode state
   const [activeFilter, setActiveFilter] = useState(false);
 
   //Pagination
@@ -14,6 +16,7 @@ const Table = ({ employees }) => {
   const displayedEmployees = displayFiveEmployees(filtered, page);
   const totalPages = Math.ceil(filtered.length / 5);
 
+  //Filter employees to show employees with same cake day
   const filterEmployees = ({ innerHTML }) => {
     const filteredByCakeDay = employees.filter(
       (employee) => employee.cakeDay.slice(4, 15) === innerHTML
@@ -23,6 +26,7 @@ const Table = ({ employees }) => {
     setPage(1);
   };
 
+  //Reset all filters
   const resetFiltered = () => {
     setFiltered(employees);
     setActiveFilter(false);
@@ -33,6 +37,8 @@ const Table = ({ employees }) => {
       setFiltered(employees);
     }
   }, [employees]);
+
+  //Check for data
   if (!employees) {
     return <p>Loading ...</p>;
   }
@@ -46,15 +52,15 @@ const Table = ({ employees }) => {
         )}
         <thead className="table__head">
           <tr>
-            <th>NAME</th>
-            <th>DOB</th>
-            <th>CAKE DAY</th>
-            <th>CAKE SIZE</th>
+            <th className="table__name">NAME</th>
+            <th className="table__hide">DOB</th>
+            <th className="table__cakeday">CAKE DAY</th>
+            <th className="table__size">SIZE</th>
           </tr>
         </thead>
         {!filtered.length && (
           <tr>
-            <td className="table__error">Add an employee!</td>
+            <td className="table__nodata">Add an employee! </td>
           </tr>
         )}
         {displayedEmployees.length > 0 && (
@@ -62,19 +68,23 @@ const Table = ({ employees }) => {
             {displayedEmployees
               .map((employee) => (
                 <tr className="table__row" key={employee.id}>
-                  <td>{employee.name.slice(0, 20)}</td>
-                  <td>{new Date(employee.dob).toDateString().slice(4, 15)}</td>
+                  <td className="table__name">{employee.name.slice(0, 14)}</td>
+                  <td className="table__hide">
+                    {new Date(employee.dob).toDateString().slice(4, 15)}
+                  </td>
                   {employee.cakeSize === "Large" ? (
                     <td
-                      className="table__row--active"
+                      className="table__cakeday table__cakeday--active"
                       onClick={(e) => filterEmployees(e.target)}
                     >
                       {employee.cakeDay.slice(4, 15)}
                     </td>
                   ) : (
-                    <td>{employee.cakeDay.slice(4, 15)}</td>
+                    <td className="table__cakeday">
+                      {employee.cakeDay.slice(4, 15)}
+                    </td>
                   )}
-                  <td>{employee.cakeSize}</td>
+                  <td className="table__size">{employee.cakeSize[0]}</td>
                 </tr>
               ))
               .slice(0, 5)}

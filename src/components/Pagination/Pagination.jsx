@@ -2,9 +2,11 @@
 import "./Pagination.scss";
 
 const Navigation = ({ page, totalPages, setPage }) => {
+  //Don't render if less than 6 employees
   if (!totalPages) {
     return;
   }
+
   return (
     <ul className="navigation">
       {page > 1 && (

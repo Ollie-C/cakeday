@@ -6,7 +6,11 @@ main {
   width: 100%;
   padding: 0.5rem 1rem;
 
+  @include tablet {
+    padding: 0.5rem 4rem;
+  }
+
   @include desktop {
-    padding: 0.5rem 8rem;
+    padding: 0.5rem 12rem;
   }
 }

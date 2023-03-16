@@ -2,13 +2,14 @@
 @use "../../styles/partials/mixins" as *;
 
 .piechart {
-  min-height: 12rem;
+  min-height: 14rem;
+  height: 14rem;
+  padding: 1rem;
   position: relative;
   background-color: $app-white;
   @include flex(row, center, center);
   margin: 1rem 0;
   border-radius: 8px;
-  height: 14rem;
   width: 100%;
 
   h3,
@@ -17,23 +18,40 @@
   }
 
   h3 {
-    color: $app-pink;
+    color: $app-white;
     font-size: 1.2rem;
-    left: 10rem;
+    top: -2rem;
+
+    @include tablet {
+      left: 1rem;
+      top: 1rem;
+      color: $app-pink;
+    }
+
+    @include desktop {
+      display: block;
+      left: 10rem;
+      top: auto;
+    }
   }
 
   &__text {
-    right: 20%;
-  }
+    background-color: $app-white;
+    border-radius: 8px;
+    @include desktop {
+      right: 10rem;
+    }
 
-  &__noCake,
-  &__smallCake,
-  &__largeCake {
-    font-size: 1.2rem;
+    * {
+      font-size: 1rem;
+      margin: 4px;
+      padding: 2px;
+    }
   }
 
   &__noCake {
     color: $app-blue;
+    font-weight: 600;
   }
 
   &__smallCake {

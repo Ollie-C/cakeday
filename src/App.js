@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+//Components
 import Chart from "./components/PieChart/PieChart";
 import Form from "./components/Form/Form";
 import Table from "./components/Table/Table";
+//Styles
 import "./styles/Styles.scss";
 
 const App = () => {
@@ -21,7 +23,6 @@ const App = () => {
   useEffect(() => {
     //Update localstorage upon employees state change
     localStorage.setItem("employees", JSON.stringify(employees));
-    console.log(employees);
 
     if (employees) {
       //Update cake size data

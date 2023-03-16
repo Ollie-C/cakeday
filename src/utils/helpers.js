@@ -1,7 +1,6 @@
-//Function to calculate cake day
-//Take birthday, find date for this year, calculate cakeday as following working day after birthday day off
+//Function to calculate cake day -Take birthday, find date for this year, calculate cakeday as following working day after birthday day off
 export const calculateCakeDay = (dob) => {
-  //Format: Wed Mar 15 2023 + time
+  //Format: Wed Mar 15 2023 (date object)
 
   //Get this year's birthday
   const birthday = new Date(2023, dob.getMonth(), dob.getDate());
@@ -43,11 +42,12 @@ export const cakeUpgrade = (cakeDay, employees) => {
   );
 };
 
+//Sort employees by cakeday (ascending)
 export const sortEmployees = (employees) => {
   return employees.sort((a, b) => new Date(a.cakeDay) - new Date(b.cakeDay));
 };
 
-//Get 5 employees
+//Get 5 employees for pagination
 export const displayFiveEmployees = (employees, currentPage) => {
   const lastEmployeeIndex = currentPage * 5;
   const firstEmployeeIndex = lastEmployeeIndex - 5;

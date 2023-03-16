@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import Logo from "../../assets/images/cakedayLogo.png";
-//Styles
+import { v4 } from "uuid";
+import DatePicker from "react-datepicker";
+//Styles and images
 import "./Form.scss";
 import "react-datepicker/dist/react-datepicker.css";
+import Logo from "../../assets/images/cakedayLogo.png";
 //Utils
 import {
   calculateCakeDay,
@@ -10,9 +12,6 @@ import {
   isShared,
   sortEmployees,
 } from "../../utils/helpers";
-//Packages
-import { v4 } from "uuid";
-import DatePicker from "react-datepicker";
 
 const Form = ({ employees, setEmployees }) => {
   const [newEmployee, setNewEmployee] = useState({ name: "", dob: new Date() });

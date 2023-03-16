@@ -32,10 +32,6 @@ const PieChart = ({ cakeSizes }) => {
         animate
         animationDuration={500}
         animationEasing="ease-out"
-        center={[50, 11]}
-        radius={10}
-        viewBoxSize={[100, 22]}
-        background={"#fff"}
       />
       <div className="piechart__text">
         {cakeSizes[0] > 0 && (
