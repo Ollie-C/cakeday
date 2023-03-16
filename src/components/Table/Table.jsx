@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
+import Navigation from "../Pagination/Pagination";
 //Styles
 import "./Table.scss";
+//Utils
+import { displayFiveEmployees } from "../../utils/helpers";
 
 const Table = ({ employees }) => {
   const [filtered, setFiltered] = useState([]);
   const [activeFilter, setActiveFilter] = useState(false);
+
+  //Pagination
+  const [page, setPage] = useState(1);
+  const displayedEmployees = displayFiveEmployees(filtered, page);
+  const totalPages = Math.ceil(filtered.length / 5);
 
   const filterEmployees = ({ innerHTML }) => {
     const filteredByCakeDay = employees.filter(
@@ -12,6 +20,7 @@ const Table = ({ employees }) => {
     );
     setFiltered(filteredByCakeDay);
     setActiveFilter(true);
+    setPage(1);
   };
 
   const resetFiltered = () => {
@@ -43,9 +52,9 @@ const Table = ({ employees }) => {
             <th>CAKE SIZE</th>
           </tr>
         </thead>
-        {filtered.length && (
+        {displayedEmployees.length && (
           <tbody className="table__body" data-testid="displayTbody">
-            {filtered
+            {displayedEmployees
               .map((employee) => (
                 <tr className="table__row" key={employee.id}>
                   <td>{employee.name.slice(0, 20)}</td>
@@ -68,6 +77,9 @@ const Table = ({ employees }) => {
         )}
       </table>
       {!filtered.length && <p className="table__error">Add an employee!</p>}
+      {employees.length > 5 && (
+        <Navigation page={page} totalPages={totalPages} setPage={setPage} />
+      )}
     </section>
   );
 };

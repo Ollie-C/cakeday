@@ -6,9 +6,8 @@
   position: relative;
   background-color: $app-white;
   @include flex(row, center, center);
-  margin: 0 8rem;
+  margin: 1rem 8rem;
   border-radius: 8px;
-
   height: 14rem;
 
   h3,

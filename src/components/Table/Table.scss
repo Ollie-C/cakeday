@@ -3,7 +3,7 @@
 
 .table-container {
   width: 100%;
-  @include flex(column, flex-start, center);
+  @include flex(column, flex-start, flex-end);
   padding: 0.5rem 8rem;
   height: 20rem;
 }
@@ -32,6 +32,9 @@
   &__row {
     height: 3rem;
     width: 100%;
+    &:hover {
+      background-color: #fff2f8;
+    }
 
     td {
       font-size: 1.2rem;
@@ -58,12 +61,24 @@
     background-color: $app-white;
     color: $app-blue;
     position: absolute;
-    bottom: -2rem;
+    top: -2rem;
     right: 0;
 
     &:hover {
       background-color: $app-pink;
       color: $app-white;
     }
+  }
+}
+
+.nav {
+  @include flex(row, center, center);
+
+  * {
+    margin: 0.1rem;
+
+    padding: 0 0.5rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
   }
 }

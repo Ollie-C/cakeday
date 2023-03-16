@@ -20,6 +20,13 @@ const Form = ({ employees, setEmployees }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    //Reset ALL data - temporary hack
+    if (newEmployee.name === "reset") {
+      setNewEmployee({ name: "", dob: new Date() });
+      setEmployees([]);
+      return;
+    }
+
     //Calculate cakeday
     const cakeDay = calculateCakeDay(newEmployee.dob);
 
@@ -61,6 +68,10 @@ const Form = ({ employees, setEmployees }) => {
             }
           />
           <DatePicker
+            peekNextMonth
+            showYearDropdown
+            dropdownMode="select"
+            dateFormat="yyyy/MM/dd"
             selected={newEmployee.dob}
             onSelect={(e) => setNewEmployee({ ...newEmployee, dob: e })}
           />

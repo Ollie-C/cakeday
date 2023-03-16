@@ -11,7 +11,7 @@ const PieChart = ({ cakeSizes }) => {
       value: Math.ceil(cakeSizes[0] / 2),
       color: "#27a2c7",
     },
-    { title: "Small", value: cakeSizes[1], color: "#db2885" },
+    { title: "Small", value: cakeSizes[1], color: "#e652ac" },
   ];
 
   //If no cake data, render message

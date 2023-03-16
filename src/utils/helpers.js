@@ -46,3 +46,11 @@ export const cakeUpgrade = (cakeDay, employees) => {
 export const sortEmployees = (employees) => {
   return employees.sort((a, b) => new Date(a.cakeDay) - new Date(b.cakeDay));
 };
+
+//Get 5 employees
+export const displayFiveEmployees = (employees, currentPage) => {
+  const lastEmployeeIndex = currentPage * 5;
+  const firstEmployeeIndex = lastEmployeeIndex - 5;
+
+  return employees.slice(firstEmployeeIndex, lastEmployeeIndex);
+};

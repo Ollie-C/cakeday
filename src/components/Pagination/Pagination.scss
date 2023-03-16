@@ -1,0 +1,18 @@
+@use "../../styles/partials/variables" as *;
+
+.navigation {
+  &__button {
+    border: none;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: $app-white;
+    color: $app-blue;
+    margin: 5px;
+
+    &:hover {
+      background-color: $app-pink;
+      color: $app-white;
+    }
+  }
+}
