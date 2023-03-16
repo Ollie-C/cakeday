@@ -44,12 +44,12 @@ const Table = ({ employees }) => {
   }
   return (
     <section className="table-container">
+      {activeFilter && (
+        <button onClick={resetFiltered} className="table__reset">
+          X RESET
+        </button>
+      )}
       <table className="table" data-testid="testTable">
-        {activeFilter && (
-          <button onClick={resetFiltered} className="table__reset">
-            X RESET
-          </button>
-        )}
         <thead className="table__head">
           <tr>
             <th className="table__name">NAME</th>
@@ -58,11 +58,7 @@ const Table = ({ employees }) => {
             <th className="table__size">SIZE</th>
           </tr>
         </thead>
-        {!filtered.length && (
-          <tr>
-            <td className="table__nodata">Add an employee! </td>
-          </tr>
-        )}
+
         {displayedEmployees.length > 0 && (
           <tbody className="table__body" data-testid="displayTbody">
             {displayedEmployees
@@ -91,7 +87,7 @@ const Table = ({ employees }) => {
           </tbody>
         )}
       </table>
-
+      {!filtered.length && <p className="table__nodata">Add an employee! </p>}
       {employees.length > 5 && (
         <Navigation page={page} totalPages={totalPages} setPage={setPage} />
       )}

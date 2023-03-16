@@ -52,5 +52,9 @@ export const displayFiveEmployees = (employees, currentPage) => {
   const lastEmployeeIndex = currentPage * 5;
   const firstEmployeeIndex = lastEmployeeIndex - 5;
 
-  return employees.slice(firstEmployeeIndex, lastEmployeeIndex);
+  if (employees.length) {
+    return employees.slice(firstEmployeeIndex, lastEmployeeIndex);
+  }
+
+  return employees;
 };
