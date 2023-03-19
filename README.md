@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# cakeday manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live: https://cakeday-manager.vercel.app/
 
-## Available Scripts
+Github: https://github.com/Ollie-C/cakeday
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+cakeday manager is an app for use at work that keeps track of an employee's birthday and calculates their cake day. Cakes are brought into work the next working day after their birthday (which they get as a day off!)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Really fun project that is simple at first glance but emphasises your ability to solve problems creatively. Every problem I solved gave rise to a new problem I hadn't intially considered. For example: the number of cakes might simply be calculated as 1 per person. But obviously (I say this retrospectively), if you share a cake day, the large cake is going be shared. An assumption had to be made that 1 large cake accounted for 2 people on a shared cake day in case we started getting 20 people sharing a single cake...!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Screenshots
 
-### `npm test`
+[Coming soon]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Get started
 
-### `npm run build`
+Either visit the deployed version above, or to run locally: 
+1. In your terminal: ``git clone https://github.com/Ollie-C/cakeday.git`` 
+2. Install dependencies: ``npm i / npm install / yarn install``
+3. Give it a whirl: ``npm run``
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Using the app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Try adding your own birthday to find out which day you'll (in theory) be receiving a cake at work this year! (If your birthday has already passed, I'll be adding a feature that allows you to search following years as well.)
 
-### `npm run eject`
+Some hacks to type in the name input:
+1. `reset` - will reset all the employee data
+2. `seed` - seeds the database with mock data
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Employee data structure is console logged for a reference point
+ 
+## Details
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Form allows user to enter employee name and date of birth using a UK date format
+2. A cake day is calculated for the employee based on their date of birth
+3. If the employee shares a cake day with someone this year, their cake size as well as the person they are sharing with, is updated to large
+4. A pie chart shows the split of small and large cakes for the current year
+5. The table is paginated to display 5 employees per page
+6. Users have the ability to filter the list by same cake day
+7. The app is built for use across multiple screen sizes
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Testing
 
-## Learn More
+Multiple basic unit tests have been built in Jest and RTL. Type ``npm run test`` to run them locally from your terminal
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Lighthouse report
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Coming soon]
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Unresolved bugs
 
-### Analyzing the Bundle Size
+1. The app allows you to enter a date in the future despite restricting the input (which has now been removed)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Limitations
 
-### Making a Progressive Web App
+- Localstorage is a temporary solution for a databse. The project has been set up so that it would be easy to introduce one
+- There are no page numbers so for companies with over a certain number of employees, the pagination is limited
+- No search filter
+- No delete functionality aside from the reset hack mentioned above
+- UK bank holidays are not included
+- Cannot display by year
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Future of the project
 
-### Advanced Configuration
+1. Address all bugs
+2. Currently the employee's name is truncated to a set length. I'd like this to be adjusted based on screen size
+3. Previously I tried using the goverment bank holiday API to retrieve bank holiday dates. It got a bit complicated and so I've shelved it for future development
+4. Add delete functionality
+5. Dropdown box allowing you to change the year
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+### Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Most linting and webpack configurations were left untouched from running create-react-app
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Ollie
