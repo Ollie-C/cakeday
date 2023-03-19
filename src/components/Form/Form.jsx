@@ -56,7 +56,7 @@ const Form = ({ employees, setEmployees }) => {
     //Update state
     setEmployees(sorted);
 
-    // Reset;
+    // Reset form
     setNewEmployee({ name: "", dob: new Date() });
   };
 

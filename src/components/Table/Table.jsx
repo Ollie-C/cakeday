@@ -6,7 +6,7 @@ import "./Table.scss";
 //Utils
 import { displayFiveEmployees } from "../../utils/helpers";
 
-const Table = ({ employees }) => {
+const Table = ({ employees, deleteEmployee }) => {
   const [filtered, setFiltered] = useState([]);
   //Filter mode state
   const [activeFilter, setActiveFilter] = useState(false);
@@ -81,6 +81,13 @@ const Table = ({ employees }) => {
                     </td>
                   )}
                   <td className="table__size">{employee.cakeSize[0]}</td>
+                  <td
+                    className="table__delete"
+                    style={{ fontSize: "12px" }}
+                    onClick={() => deleteEmployee(employee.id)}
+                  >
+                    X
+                  </td>
                 </tr>
               ))
               .slice(0, 5)}

@@ -10,6 +10,12 @@ const App = () => {
   const [employees, setEmployees] = useState([]);
   const [cakeSizes, setCakeSizes] = useState([0, 0]);
 
+  //Delete employee
+  const deleteEmployee = (id) => {
+    const updated = employees.filter((employee) => employee.id !== id);
+    setEmployees(updated);
+  };
+
   useEffect(() => {
     //On page load, sync state with localstorage
     const savedEmployees = JSON.parse(localStorage.getItem("employees"));
@@ -38,7 +44,7 @@ const App = () => {
     <div className="App">
       <main>
         <Form employees={employees} setEmployees={setEmployees} />
-        <Table employees={employees} />
+        <Table employees={employees} deleteEmployee={deleteEmployee} />
         <Chart cakeSizes={cakeSizes} />
       </main>
     </div>
