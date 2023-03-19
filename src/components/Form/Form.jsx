@@ -15,7 +15,7 @@ import {
 //Seed data
 import { mockData } from "../../data/seed";
 
-const Form = ({ employees, setEmployees }) => {
+const Form = ({ employees, setEmployees, year }) => {
   const [newEmployee, setNewEmployee] = useState({ name: "", dob: new Date() });
 
   const handleSubmit = (e) => {
@@ -36,7 +36,7 @@ const Form = ({ employees, setEmployees }) => {
     }
 
     //Calculate cakeday
-    const cakeDay = calculateCakeDay(newEmployee.dob);
+    const cakeDay = calculateCakeDay(year, newEmployee.dob);
 
     //Add new fields to new employee object
     const employee = {
@@ -52,7 +52,7 @@ const Form = ({ employees, setEmployees }) => {
 
     //Sort in ascending order
     const sorted = sortEmployees([employee, ...updatedEmployees]);
-
+    console.log(newEmployee.dob);
     //Update state
     setEmployees(sorted);
 

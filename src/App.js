@@ -5,10 +5,13 @@ import Form from "./components/Form/Form";
 import Table from "./components/Table/Table";
 //Styles
 import "./styles/Styles.scss";
+import { calculateCakeDay } from "./utils/helpers";
 
 const App = () => {
   const [employees, setEmployees] = useState([]);
   const [cakeSizes, setCakeSizes] = useState([0, 0]);
+  //Set current year
+  const [year, setYear] = useState(new Date().getFullYear());
 
   //Delete employee
   const deleteEmployee = (id) => {
@@ -43,8 +46,12 @@ const App = () => {
   return (
     <div className="App">
       <main>
-        <Form employees={employees} setEmployees={setEmployees} />
-        <Table employees={employees} deleteEmployee={deleteEmployee} />
+        <Form employees={employees} year={year} setEmployees={setEmployees} />
+        <Table
+          employees={employees}
+          year={year}
+          deleteEmployee={deleteEmployee}
+        />
         <Chart cakeSizes={cakeSizes} />
       </main>
     </div>
