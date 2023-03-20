@@ -43,6 +43,7 @@ Employee data structure is console logged for a reference point
 5. The table is paginated to display 5 employees per page
 6. Users have the ability to filter the list by same cake day
 7. The app is built for use across multiple screen sizes
+8. User is able to delete a record
 
 ### Testing
 
@@ -56,13 +57,14 @@ Multiple basic unit tests have been built in Jest and RTL. Type ``npm run test``
 ### Unresolved bugs
 
 1. The app allows you to enter a date in the future despite restricting the input (which has now been removed)
+2. Deleting the last record on a page doesn't reset total number of pages and displays an empty table
+3. If deleting whilst the table is filtered, no way to reset the 
 
 ### Limitations
 
-- Localstorage is a temporary solution for a databse. The project has been set up so that it would be easy to introduce one
+- Localstorage is used to replicate a database. The project has been set up so that it would be easy to introduce an actual DB solution
 - There are no page numbers so for companies with over a certain number of employees, the pagination is limited
 - No search filter
-- No delete functionality aside from the reset hack mentioned above
 - UK bank holidays are not included
 - Cannot display by year
 
@@ -70,9 +72,8 @@ Multiple basic unit tests have been built in Jest and RTL. Type ``npm run test``
 
 1. Address all bugs
 2. Currently the employee's name is truncated to a set length. I'd like this to be adjusted based on screen size
-3. Previously I tried using the goverment bank holiday API to retrieve bank holiday dates. It got a bit complicated and so I've shelved it for future development
-4. Add delete functionality
-5. Dropdown box allowing you to change the year
+3. Previously I tried using the goverment bank holiday API to retrieve bank holiday dates. Logic is not super simple and the feature wasn't a priority so shelved it for future development
+4. Dropdown box allowing you to change the year
 
 
 ### Notes
